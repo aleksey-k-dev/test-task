@@ -1,0 +1,23 @@
+<h2>Welcome to the Test Task!</h2>
+
+<form *ngIf="authState$ | async as state" [formGroup]="form" (ngSubmit)="login()">
+    <input
+        type="text"
+        formControlName="username"
+        placeholder="Email"
+        required
+        [class.error-field]="form.controls.username.touched && !form.controls.username.valid"
+    >
+    <input
+        type="password"
+        formControlName="password"
+        placeholder="Password"
+        required
+        [class.error-field]="form.controls.password.touched && !form.controls.password.valid"
+    >
+    <span class="error">{{ state.error }}</span>
+    <button type="submit" class="submit-btn" [disabled]="state.isLoginPrecessing">
+        <ng-container *ngIf="!state.isLoginPrecessing">Log in</ng-container>
+        <ng-container *ngIf="state.isLoginPrecessing">Logging in...</ng-container>
+    </button>
+</form>

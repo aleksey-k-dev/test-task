@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import './styles/reset';
+@import './styles/colors';
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    font-size: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.1875;
+    font-weight: 400;
+    color: $default-font-color;
+}
+
+button:hover {
+    cursor: pointer;
+}

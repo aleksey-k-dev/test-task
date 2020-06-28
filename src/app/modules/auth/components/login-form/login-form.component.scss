@@ -1,0 +1,70 @@
+@import '../../../../../styles/colors';
+
+:host {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    margin-bottom: 60px;
+    font-size: 3.2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+.submit-btn {
+    padding: 20px 24px;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1.8rem;
+}
+
+input {
+    margin-bottom: 12px;
+    border: 1px solid $ui-major-color;
+    background-color: $ui-major-color;
+    transition: border-color 0.3s;
+
+    &,
+    &::placeholder {
+        color: $ui-major-contrast-color;
+    }
+
+    &:focus {
+        border-color: $major-color;
+    }
+
+    &.error-field {
+        border-color: $danger-color;
+    }
+}
+
+.submit-btn {
+    margin-top: 30px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $major-color-contrast;
+    background-color: $major-color;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: scale-color($color: $major-color, $lightness: -10%);
+    }
+
+    &:disabled {
+        background-color: adjust-color($color: $major-color, $alpha: -0.3);
+    }
+}
+
+.error {
+    padding: 4px 3px;
+    color: $danger-color;
+}
