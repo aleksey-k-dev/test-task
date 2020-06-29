@@ -5,6 +5,7 @@ import { map, switchMap, catchError, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthEffects {
@@ -25,6 +26,9 @@ export class AuthEffects {
         ofType(successLogin),
         tap((action) => {
             localStorage.setItem(environment.authTokenStorageName, action.accessToken)
+        }),
+        tap(() => {
+            this.router.navigate(['/']);
         })
     ), { dispatch: false });
 
@@ -32,16 +36,22 @@ export class AuthEffects {
         ofType(logout),
         tap(() => {
             localStorage.removeItem(environment.authTokenStorageName);
+        }),
+        tap(() => {
+            this.router.navigate(['/login']);
         })
     ), { dispatch: false });
 
     private authService: AuthService;
+    private router: Router;
 
     constructor(
         private actions$: Actions,
-        authService: AuthService
+        authService: AuthService,
+        router: Router
     ) {
         this.actions$ = actions$;
         this.authService = authService;
+        this.router = router;
     }
 }

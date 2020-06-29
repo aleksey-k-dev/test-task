@@ -7,6 +7,8 @@ import { authReducer } from './store/reducers/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/effects/auth.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { CallsModule } from './modules/calls/calls.module';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
     StoreModule.forRoot({ auth: authReducer }),
     EffectsModule.forRoot([AuthEffects]),
     AuthModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    CallsModule
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

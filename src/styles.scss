@@ -19,6 +19,6 @@ html {
     color: $default-font-color;
 }
 
-button:hover {
+button:hover:not(:disabled) {
     cursor: pointer;
 }
