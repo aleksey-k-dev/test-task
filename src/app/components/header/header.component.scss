@@ -1,17 +1,23 @@
 @import "../../../styles/colors";
 
 :host {
-    display: flex;
-    padding: 10px 20px;
+    display: block;
+    padding: 10px 0;
     box-shadow: 0px -20px 16px 20px $main-shadow-color;
 }
 
+.container {
+    display: flex;
+}
+
 .header-btn {
+    display: block;
     padding: 8px 10px;
     border: none;
     outline: none;
     background-color: transparent;
     color: $major-color;
+    text-decoration: none;
 
     &:hover {
         text-decoration: underline;

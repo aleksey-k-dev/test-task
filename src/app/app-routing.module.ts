@@ -4,10 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './modules/auth/components/login-page/login-page.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CallsPageComponent } from './modules/calls/components/calls-page/calls-page.component';
+import { CallDetailsPageComponent } from './modules/calls/components/call-details-page/call-details-page.component';
 
 const routes: Routes = [{
     path: '',
     component: CallsPageComponent,
+    canActivate: [AuthGuard]
+  }, {
+    path: 'call/:id',
+    component: CallDetailsPageComponent,
     canActivate: [AuthGuard]
   }, {
     path: 'login',
