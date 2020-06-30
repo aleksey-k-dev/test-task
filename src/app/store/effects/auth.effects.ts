@@ -10,9 +10,6 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthEffects {
     public requestLogin$ = createEffect(() => this.actions$.pipe(
-        tap((action) => {
-            console.log(action);
-        }),
         ofType(requestLogin),
         switchMap((payload) => this.authService.login(payload.username, payload.password).pipe(
             map((res) => successLogin(res)),

@@ -8,13 +8,13 @@ export interface AuthState {
     isLoggedIn: boolean
 }
 
-export const initialState: AuthState = {
+export const initialAuthState: AuthState = {
     isLoginPrecessing: false,
     error: '',
     isLoggedIn: !!localStorage.getItem(environment.authTokenStorageName)
 };
 
-const _authReducer = createReducer(initialState,
+const _authReducer = createReducer(initialAuthState,
     on(requestLogin, (state) => ({
         ...state,
         isLoginPrecessing: true

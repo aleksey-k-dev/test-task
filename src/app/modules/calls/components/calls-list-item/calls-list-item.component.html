@@ -1,0 +1,35 @@
+<h5 class="header">
+    <span>Phone call #{{ call?.id }}</span>
+</h5>
+
+<div class="info-item">
+    <div class="icon-wrapper">
+        <i class="material-icons">date_range</i>
+    </div>
+    <span>Started: <span class="date">{{ call?.startedAt | date:'HH:mm:ss, d LLL yyyy' }}</span></span>
+</div>
+
+<div class="info-item">
+    <div class="icon-wrapper">
+        <i class="material-icons">date_range</i>
+    </div>
+    <span>Finished: <span class="date">{{ call?.finishedAt | date:'HH:mm:ss, d LLL yyyy' }}</span></span>
+</div>
+
+<div class="info-item">
+    <div class="icon-wrapper">
+        <i class="material-icons">access_time</i>
+    </div>
+    <span>{{ call?.duration | duration }}</span>
+</div>
+
+<div class="info-item">
+    <div class="icon-wrapper">
+        <i class="material-icons">phone</i>
+    </div>
+    <span>{{ call?.contactPhone | phone }}</span>
+</div>
+
+<div class="details-btn-wrapper">
+    <a href="#" class="details-btn">Click for more details</a>
+</div>

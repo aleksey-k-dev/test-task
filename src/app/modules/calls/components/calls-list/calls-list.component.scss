@@ -1,0 +1,12 @@
+:host {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 15px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    :host {
+        grid-template-columns: minmax(300px, 1fr);
+    }
+}
