@@ -12,10 +12,12 @@ import { CallsModule } from './modules/calls/calls.module';
 import { callsReducer } from './store/reducers/calls.reducer';
 import { CallsEffects } from './store/effects/calls.effects';
 import { AuthTokenInterceptor } from './interceptors/auth-token.interceptor';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

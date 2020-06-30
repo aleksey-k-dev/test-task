@@ -1,0 +1,23 @@
+@import "../../../styles/colors";
+
+:host {
+    display: flex;
+    padding: 10px 20px;
+    box-shadow: 0px -20px 16px 20px $main-shadow-color;
+}
+
+.header-btn {
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: $major-color;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.push-right {
+    margin-left: auto;
+}

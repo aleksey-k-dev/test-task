@@ -17,7 +17,7 @@
     >
     <span *ngIf="state.error" class="error">{{ state.error }}</span>
     <button type="submit" class="submit-btn" [disabled]="state.isLoginPrecessing">
-        <ng-container *ngIf="!state.isLoginPrecessing">Log in</ng-container>
+        <ng-container *ngIf="!state.isLoginPrecessing">Login</ng-container>
         <ng-container *ngIf="state.isLoginPrecessing">Logging in...</ng-container>
     </button>
 </form>
