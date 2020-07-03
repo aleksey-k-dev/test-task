@@ -4,4 +4,9 @@ export interface Call {
     finishedAt: string;
     duration: number;
     contactPhone: string;
+    wrapups: {
+        wrapupId: number;
+        agentId: number;
+        wrapupComment: string;
+    }[];
 }

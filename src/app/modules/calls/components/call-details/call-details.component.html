@@ -1,0 +1,53 @@
+<ng-container *ngIf="callsState$ | async as state">
+    <div *ngIf="!state.isActiveCallFetching && state.activeCall as call" class="call-wrapper">
+        <h5 class="header">Phone call #{{ call?.id }}</h5>
+
+        <div class="info-container">
+            <div class="info-item">
+                <div class="icon-wrapper">
+                    <i class="material-icons">date_range</i>
+                </div>
+                <span>Started: <span class="date">{{ call?.startedAt | date:'HH:mm:ss, d LLL yyyy' }}</span></span>
+            </div>
+            
+            <div class="info-item">
+                <div class="icon-wrapper">
+                    <i class="material-icons">date_range</i>
+                </div>
+                <span>Finished: <span class="date">{{ call?.finishedAt | date:'HH:mm:ss, d LLL yyyy' }}</span></span>
+            </div>
+            
+            <div class="info-item">
+                <div class="icon-wrapper">
+                    <i class="material-icons">access_time</i>
+                </div>
+                <span>{{ call?.duration | duration }}</span>
+            </div>
+            
+            <div class="info-item">
+                <div class="icon-wrapper">
+                    <i class="material-icons">phone</i>
+                </div>
+                <span>{{ call?.contactPhone | phone }}</span>
+            </div>
+        </div>
+
+        <form class="wrapups-container" [formGroup]="form" (ngSubmit)="saveCall()">
+            <div *ngFor="let wrapup of call?.wrapups" class="wrapup">
+                <h6 class="wrapup-header">Wrapup #{{ wrapup.wrapupId }} (Agent #{{ wrapup.agentId }})</h6>
+                <textarea rows="5" class="wrapup-comment" [formControlName]="'wrapupComment_' + wrapup.wrapupId"></textarea>
+            </div>
+
+            <div *ngIf="form.dirty || state.hasCallUpdated" @slide class="form-footer">
+                <div *ngIf="state.callUpdateError" class="message error">{{ state.callUpdateError }}</div>
+                <div *ngIf="!state.callUpdateError && state.hasCallUpdated && form.pristine" class="message">Updated!</div>
+                <button type="submit" class="submit-btn" [disabled]="state.isCallUpdating">
+                    <ng-container *ngIf="!state.isCallUpdating">Save</ng-container>
+                    <ng-container *ngIf="state.isCallUpdating">Saving...</ng-container>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="!state.isActiveCallFetching && !state.activeCall" class="not-exist-label">This call does not exist</div>
+</ng-container>

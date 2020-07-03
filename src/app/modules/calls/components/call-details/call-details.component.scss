@@ -1,0 +1,151 @@
+@import "../../../../../styles/colors";
+
+:host {
+    display: block;
+}
+
+.call-wrapper {
+    min-width: 310px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 12px;
+    border-radius: 2px;
+    overflow: hidden;
+    background-color: $ui-major-color;
+}
+
+.header {
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 2.4rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $major-contrast-color;
+    background-color: $major-color;
+}
+
+.info-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    padding: 0 10px;
+
+    & > * {
+        flex-basis: 50%;
+    }
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 0 12px;
+
+    &:nth-last-child(-n+2) {
+        margin-bottom: 0;
+    }
+}
+
+.icon-wrapper {
+    margin-right: 10px;
+    padding: 1px;
+    border: 2px solid $major-color;
+    border-radius: 4px;
+    color: $major-color;
+
+    .material-icons {
+        display: block;
+        font-size: 2.2rem;
+        color: $major-color;
+    }
+}
+
+.date {
+    font-style: italic;
+}
+
+.wrapups-container {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.wrapup {
+    margin-bottom: 12px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.wrapup-header {
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+}
+
+.wrapup-comment {
+    resize: none;
+    width: 100%;
+    padding: 8px;
+    border: 2px solid $major-color;
+    border-radius: 4px;
+    outline: none;
+    background-color: $major-contrast-color;
+}
+
+.form-footer {
+    display: flex;
+    align-items: center;
+
+    .message {
+        font-size: 1.8rem;
+        color: $major-color;
+    }
+
+    .error {
+        color: $danger-color;
+    }
+}
+
+.submit-btn {
+    width: 140px;
+    margin-left: auto;
+    padding: 17px 12px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $major-contrast-color;
+    background-color: $major-color;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: scale-color($color: $major-color, $lightness: -10%);
+    }
+
+    &:disabled {
+        background-color: adjust-color($color: $major-color, $alpha: -0.3);
+    }
+}
+
+.not-exist-label {
+    padding: 50px 20px 20px;
+    font-size: 3.8rem;
+    color: $major-color;
+}
+
+@media screen and (max-width: 750px) {
+    .info-container {
+        display: block;
+    }
+    
+    .info-item {
+        margin-bottom: 8px;
+    
+        &:nth-last-child(-n+2) {
+            margin-bottom: 8px;
+        }
+    }
+}

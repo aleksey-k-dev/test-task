@@ -8,6 +8,7 @@ import { PhonePipe } from './pipes/phone.pipe';
 import { CallDetailsPageComponent } from './components/call-details-page/call-details-page.component';
 import { CallDetailsComponent } from './components/call-details/call-details.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     CallsPageComponent,
